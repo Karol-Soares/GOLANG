@@ -30,4 +30,11 @@ func main() {
 
 	fmt.Println(contaDoRoronoa)
 	fmt.Println(contaDaNami)
+
+	var contaDoUsopp *ContaCorrente
+	contaDoUsopp = new(ContaCorrente)
+	contaDoUsopp.titular = "Usopp"
+	contaDoUsopp.saldo = 500
+
+	fmt.Println(*contaDoUsopp)
 }
