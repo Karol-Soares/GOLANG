@@ -9,18 +9,25 @@ import "fmt"
 // Titular: nome, Agencia: numero, Conta: numero, Saldo: valor
 // queremos armazenar esses valores na memoria do computador
 
+// Struct - aula 2
+
+type ContaCorrente struct {
+	titular       string
+	numeroAgencia int
+	numeroConta   int
+	saldo         float64
+}
+
+// definindo variaveis - aula 1
 func main() {
-	var titular string = "Roronoa"
-	var numeroAgencia int = 589
-	var numeroConta int = 123456
-	var saldo float64 = 125.5
+	contaDoRoronoa := ContaCorrente{titular: "Roronoa",
+		numeroAgencia: 589,
+		numeroConta:   123456,
+		saldo:         125.5,
+	}
 
-	fmt.Println(titular, numeroAgencia, numeroConta, saldo)
+	contaDaNami := ContaCorrente{"Nami", 222, 654321, 120}
 
-	var titular2 string = "Luffy"
-	var numeroAgencia2 int = 985
-	var numeroConta2 int = 654321
-	var saldo2 float64 = 100.5
-
-	fmt.Println(titular2, numeroAgencia2, numeroConta2, saldo2)
+	fmt.Println(contaDoRoronoa)
+	fmt.Println(contaDaNami)
 }
