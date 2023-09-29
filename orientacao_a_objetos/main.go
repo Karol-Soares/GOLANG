@@ -18,32 +18,25 @@ type ContaCorrente struct {
 	saldo         float64
 }
 
-// definindo variaveis - aula 1
+// Criando metodo sacar
+func (conta *ContaCorrente) Sacar(valorDoSaque float64) string {
+	podeSacar := valorDoSaque > 0 && valorDoSaque <= conta.saldo
+	if podeSacar {
+		conta.saldo -= valorDoSaque
+		return "Saque realizado com sucesso"
+	} else {
+		return "saldo insuficiente"
+	}
+}
+
 func main() {
-	// contaDoRoronoa := ContaCorrente{titular: "Roronoa",
-	// 	numeroAgencia: 589,
-	// 	numeroConta:   123456,
-	// 	saldo:         125.5,
-	// }
+	contaDoRoronoa := ContaCorrente{}
+	contaDoRoronoa.titular = "Roronoa"
+	contaDoRoronoa.saldo = 500
 
-	// contaDaNami := ContaCorrente{"Nami", 222, 654321, 120}
+	fmt.Println(contaDoRoronoa.saldo)
 
-	// fmt.Println(contaDoRoronoa == contaDoRoronoa2)
-	// fmt.Println(contaDaNami == contaDaNami2)
+	fmt.Println(contaDoRoronoa.Sacar(400))
 
-	// // New e Ponteiros - aula 3 (outra forma de usar struct)
-
-	var contaDoUsopp *ContaCorrente
-	contaDoUsopp = new(ContaCorrente)
-	contaDoUsopp.titular = "Usopp"
-	contaDoUsopp.saldo = 500
-
-	var contaDoUsopp2 *ContaCorrente
-	contaDoUsopp2 = new(ContaCorrente)
-	contaDoUsopp2.titular = "Usopp"
-	contaDoUsopp2.saldo = 500
-
-	// Comparando tipos - aula 4
-
-	fmt.Println(*contaDoUsopp == *contaDoUsopp2)
+	fmt.Println(contaDoRoronoa.saldo)
 }
