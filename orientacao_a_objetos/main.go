@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Banco
 
@@ -39,13 +41,27 @@ func (c *ContaCorrente) Depositar(valorDoDeposito float64) (string, float64) {
 	}
 }
 
-func main() {
-	contaDoRoronoa := ContaCorrente{}
-	contaDoRoronoa.titular = "Roronoa"
-	contaDoRoronoa.saldo = 500
+// Criando metodo de transferencia entre contas
 
-	fmt.Println(contaDoRoronoa.saldo)
-	status, valor := contaDoRoronoa.Depositar(2000)
-	fmt.Println(status, valor)
+func (c *ContaCorrente) Transferir(valorDaTransferencia float64, contaDestino *ContaCorrente) bool {
+	if valorDaTransferencia < c.saldo && valorDaTransferencia > 0 {
+		c.saldo -= valorDaTransferencia
+		contaDestino.Depositar(valorDaTransferencia)
+		return true
+	} else {
+		return false
+	}
+
+}
+
+func main() {
+	contaDoRoronoa := ContaCorrente{titular: "Roronoa", saldo: 125.50}
+	contaDoLuffy := ContaCorrente{titular: "Luffy", saldo: 200.0}
+
+	status := contaDoRoronoa.Transferir(100, &contaDoLuffy)
+	fmt.Println(status)
+
+	fmt.Println(contaDoRoronoa)
+	fmt.Println(contaDoLuffy)
 
 }
