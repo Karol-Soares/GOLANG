@@ -20,21 +20,30 @@ type ContaCorrente struct {
 
 // definindo variaveis - aula 1
 func main() {
-	contaDoRoronoa := ContaCorrente{titular: "Roronoa",
-		numeroAgencia: 589,
-		numeroConta:   123456,
-		saldo:         125.5,
-	}
+	// contaDoRoronoa := ContaCorrente{titular: "Roronoa",
+	// 	numeroAgencia: 589,
+	// 	numeroConta:   123456,
+	// 	saldo:         125.5,
+	// }
 
-	contaDaNami := ContaCorrente{"Nami", 222, 654321, 120}
+	// contaDaNami := ContaCorrente{"Nami", 222, 654321, 120}
 
-	fmt.Println(contaDoRoronoa)
-	fmt.Println(contaDaNami)
+	// fmt.Println(contaDoRoronoa == contaDoRoronoa2)
+	// fmt.Println(contaDaNami == contaDaNami2)
+
+	// // New e Ponteiros - aula 3 (outra forma de usar struct)
 
 	var contaDoUsopp *ContaCorrente
 	contaDoUsopp = new(ContaCorrente)
 	contaDoUsopp.titular = "Usopp"
 	contaDoUsopp.saldo = 500
 
-	fmt.Println(*contaDoUsopp)
+	var contaDoUsopp2 *ContaCorrente
+	contaDoUsopp2 = new(ContaCorrente)
+	contaDoUsopp2.titular = "Usopp"
+	contaDoUsopp2.saldo = 500
+
+	// Comparando tipos - aula 4
+
+	fmt.Println(*contaDoUsopp == *contaDoUsopp2)
 }
